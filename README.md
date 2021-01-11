@@ -1,5 +1,7 @@
 # Turtle Language Server
 
+[![PyPI version](https://badge.fury.io/py/turtle_language_server.svg)](https://badge.fury.io/py/turtle_language_server)
+
 This is a [LSP server](https://langserver.org/) implementation for RDF graphs serialized as Turtle.
 
 Install with: `pip install turtle_language_server`
