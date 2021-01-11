@@ -6,8 +6,27 @@ This is a [LSP server](https://langserver.org/) implementation for RDF graphs se
 
 Install with: `pip install turtle_language_server`
 
+## Commands and Features
 
-## With NeoVim and CoC
+- Use the `loadGraphs` command to pull in the graph definitions listed as prefixes in your Turtle file:
+    ```
+    # caches graphs in-memory for NeoVim session
+    :CocCommand loadGraphs
+    ```
+    
+    ```
+    # overrides cache and pulls graphs anyway
+    :CocCommand loadGraphs force
+    ```
+- syntax checking your Turtle file (including undefined namespaces)
+- auto-complete when adding statements to the file (relies on `loadGraphs`)
+
+## TODOs:
+
+- [ ] verify shapes and add validation information to UI
+
+
+## Setup With NeoVim and CoC
 
 If you are using [`coc.nvim`](https://github.com/neoclide/coc.nvim), you can configure the language server as follows:
 
