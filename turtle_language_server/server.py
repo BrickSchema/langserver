@@ -47,6 +47,7 @@ class TurtleLanguageServer(LanguageServer):
 
 ttl_server = TurtleLanguageServer()
 
+
 def _load(ls, params):
     ls.show_message_log('Updating graph...')
     text_doc = ls.workspace.get_document(params.textDocument.uri)
@@ -135,14 +136,6 @@ def completions(ls: TurtleLanguageServer, params: CompletionParams = None):
     subjects = list(set(subjects))
     return CompletionList(False, [CompletionItem(x) for x in subjects])
 
-    # return CompletionList(False, [
-    #     CompletionItem('"'),
-    #     CompletionItem('['),
-    #     CompletionItem(']'),
-    #     CompletionItem('{'),
-    #     CompletionItem('}')
-    # ])
-
 
 @ttl_server.command(TurtleLanguageServer.CMD_COUNT_DOWN_BLOCKING)
 def count_down_10_seconds_blocking(ls, *args):
@@ -171,17 +164,7 @@ async def count_down_10_seconds_non_blocking(ls, *args):
 @ttl_server.feature(TEXT_DOCUMENT_DID_CHANGE)
 def did_change(ls, params: DidChangeTextDocumentParams):
     """Text document did change notification."""
-    pass
-    # print(params.contentChanges)
-    # ws = ls.workspace
-    # print(dir(ws))
-    # print("URI", params.textDocument.uri)
-    # doc = ws.get_document(params.textDocument.uri)
-    # print(dir(doc))
-    # print(doc.source)
-    # print(help(doc.apply_change))
-    # _validate(ls, params)
-    # _load(ls, params)
+    load_stuff(ls)
 
 
 @ttl_server.feature(TEXT_DOCUMENT_DID_CLOSE)

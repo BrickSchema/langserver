@@ -1,8 +1,11 @@
 [tool.poetry]
 name = "turtle-language-server"
-version = "0.1.0"
-description = ""
+version = "0.1.1"
+description = "Language Server Protocol implementation for Turtle and RDF"
+readme = "README.md"
 authors = ["Gabe Fierro <gtfierro@cs.berkeley.edu>"]
+homepage = "https://brickschema.org"
+license = "BSD-3-Clause"
 
 [tool.poetry.scripts]
 turtle_langserver = "turtle_language_server.entry:main"
