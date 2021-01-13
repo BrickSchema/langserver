@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "turtle-language-server"
-version = "0.1.1"
+version = "0.1.2"
 description = "Language Server Protocol implementation for Turtle and RDF"
 readme = "README.md"
 authors = ["Gabe Fierro <gtfierro@cs.berkeley.edu>"]
