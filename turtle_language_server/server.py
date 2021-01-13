@@ -27,6 +27,7 @@ COUNT_DOWN_SLEEP_IN_SECONDS = 1
 
 logging.basicConfig(filemode='w', level=logging.DEBUG)
 
+
 class TurtleLanguageServer(LanguageServer):
     CMD_COUNT_DOWN_BLOCKING = 'countDownBlocking'
     CMD_COUNT_DOWN_NON_BLOCKING = 'countDownNonBlocking'
@@ -63,7 +64,7 @@ def _load(ls, params):
 @ttl_server.command(TurtleLanguageServer.CMD_LOAD_GRAPHS)
 def load_stuff(ls: TurtleLanguageServer, *args):
     namespaces = list(ls.graph.namespaces())
-    force = 'force' in args[0]
+    force = 'force' in args[0] if len(args) > 0 else False
     for pfx, namespace in namespaces:
         if not force and (pfx in ls.nsgraphs and len(ls.nsgraphs[pfx]) > 0):
             continue
@@ -201,5 +202,6 @@ async def register_completions(ls: TurtleLanguageServer, *args):
         ls.show_message('Error happened during completions registration.',
                         MessageType.Error)
 
-# ttl_server.start_tcp('localhost', 8080)
+if __name__ == '__main__':
+    ttl_server.start_tcp('localhost', 8080)
 # ttl_server.start_io()
